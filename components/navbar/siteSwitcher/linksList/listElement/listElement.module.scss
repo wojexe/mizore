@@ -1,0 +1,45 @@
+.link {
+  position: relative;
+
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+
+    top: 0;
+
+    height: 1em;
+    width: 3px;
+
+    background: white;
+    border-radius: 50px;
+
+    transition: 0.3s ease-in-out all;
+    opacity: 0;
+
+    cursor: default;
+  }
+
+  &::before {
+    left: -1.2rem;
+  }
+
+  &::after {
+    right: -1.2rem;
+  }
+}
+
+.active {
+  &::before,
+  &::after {
+    transition: 0.3s ease-in-out all;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,29 @@
+.layoutBase {
+  display: grid;
+  grid-template-columns: 1fr [content] clamp(150px, 85%, 550px) 1fr;
+  grid-auto-rows: auto;
+
+  row-gap: 4rem;
+
+  width: 100%;
+  padding: max(var(--sat), calc(80px + 4rem)) var(--sar) var(--sab) var(--sal);
+
+  margin-bottom: 2rem;
+}
+
+.mainContent {
+  grid-column: content;
+
+  display: grid;
+
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+
+  gap: 2rem;
+}
+
+.footer {
+  grid-column: content;
+
+  display: flex;
+}

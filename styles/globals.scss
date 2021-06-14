@@ -1,0 +1,76 @@
+/* VARIABLES */
+:root {
+  --background-color: 18, 18, 18;
+  --inner-background-color: 48, 48, 48;
+  --card-color: 37, 37, 37;
+  --text-color: 255, 255, 255;
+  --color-gradient: linear-gradient(
+    to right,
+    rgb(18, 194, 233),
+    rgb(196, 113, 237),
+    rgb(246, 79, 89)
+  );
+
+  --font-family: "Chivo", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-size-S: 0.9rem;
+  --font-size-M: 1rem;
+  --font-size-L: 1.2rem;
+  --font-size-XL: 1.5rem;
+  --font-size-XXL: 1.8rem;
+
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+}
+
+/* GLOBAL CODE */
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(var(--background-color));
+  color: rgba(var(--text-color), 1);
+
+  font-family: var(--font-family);
+  font-size: var(--font-size-M);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+label {
+  font-size: var(--font-size-S);
+  user-select: none;
+}
+
+input {
+  border: none;
+
+  background: white;
+
+  font-size: max(16px, var(--font-size-M));
+  padding: 0.25rem 0.5rem;
+}
+
+button {
+  border: none;
+
+  width: fit-content;
+  padding: 0.25rem 0.5rem;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: calc(12vh + 70px); // space for navbar
+}

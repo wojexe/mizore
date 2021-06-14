@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "next",
+    "next/core-web-vitals"
+  ],
+
+  "plugins": ["prettier"],
+
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+
+  "globals": {
+    "JSX": true
+  },
+
+  "rules": {
+    "no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": "off",
+    "react/jsx-props-no-spreading": "off",
+    "prettier/prettier": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}

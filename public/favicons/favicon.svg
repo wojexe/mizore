@@ -1,0 +1,15 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <style>
+  .a { fill: #ffffff }
+  .b { fill: #000000 }
+  @media (prefers-color-scheme: dark) {
+    .a { fill: #000000 }
+    .b { fill: #ffffff }
+  }
+  </style>
+  <circle cx="64" cy="64" r="64" class="b"/>
+  <path d="M64 97.7455C76.8532 97.7455 87.2727 87.3259 87.2727 74.4727H79.1273C79.1273 74.4727 79.1273 89.6 64 89.6C48.8727 89.6 48.8727 74.4727 48.8727 74.4727H40.7273C40.7273 87.3259 51.1468 97.7455 64 97.7455Z" class="a"/>
+  <rect x="40.7273" y="34.9091" width="8.14545" height="44.2182" rx="3.5" class="a"/>
+  <rect x="79.1273" y="34.9091" width="8.14545" height="44.2182" rx="3.5" class="a"/>
+</svg>

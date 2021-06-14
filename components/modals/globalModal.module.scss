@@ -1,0 +1,105 @@
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+
+  display: grid;
+  grid-template-rows: 1fr max-content 1fr;
+  grid-template-columns: 100%;
+
+  gap: 2rem;
+
+  justify-items: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(10px);
+
+  z-index: 150;
+}
+
+.modal {
+  display: flex;
+
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: fit-content;
+
+  padding: 1rem 2rem;
+
+  overflow: hidden;
+
+  font-size: var(--font-size-M);
+  background-color: rgb(var(--card-color));
+
+  box-shadow: 0 0.6px 0.6px -6px rgba(0, 0, 0, 0.07),
+    0 1.3px 1.3px -6px rgba(0, 0, 0, 0.101),
+    0 2.5px 2.5px -6px rgba(0, 0, 0, 0.125),
+    0 4.5px 4.5px -6px rgba(0, 0, 0, 0.149),
+    0 8.4px 8.4px -6px rgba(0, 0, 0, 0.18), 0 20px 20px -6px rgba(0, 0, 0, 0.25);
+
+  border-radius: 45px;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-XL);
+
+  margin-bottom: 1rem;
+
+  align-self: center;
+
+  text-transform: capitalize;
+}
+
+.closeButton {
+  display: flex;
+
+  width: fit-content;
+  height: fit-content;
+
+  align-self: flex-end;
+
+  padding: 1rem;
+
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+
+  cursor: pointer;
+
+  box-shadow: 0 0.6px 0.6px -6px rgba(0, 0, 0, 0.07),
+    0 1.3px 1.3px -6px rgba(0, 0, 0, 0.101),
+    0 2.5px 2.5px -6px rgba(0, 0, 0, 0.125),
+    0 4.5px 4.5px -6px rgba(0, 0, 0, 0.149),
+    0 8.4px 8.4px -6px rgba(0, 0, 0, 0.18), 0 20px 20px -6px rgba(0, 0, 0, 0.25);
+}
+
+.errorBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  gap: 1rem;
+
+  align-self: flex-start;
+}
+
+.errorElement {
+  background: white;
+  color: black;
+  padding: 0.5rem 1rem;
+
+  border-radius: 100px;
+
+  box-shadow: 0 0.6px 0.6px -6px rgba(0, 0, 0, 0.07),
+    0 1.3px 1.3px -6px rgba(0, 0, 0, 0.101),
+    0 2.5px 2.5px -6px rgba(0, 0, 0, 0.125),
+    0 4.5px 4.5px -6px rgba(0, 0, 0, 0.149),
+    0 8.4px 8.4px -6px rgba(0, 0, 0, 0.18), 0 20px 20px -6px rgba(0, 0, 0, 0.25);
+}

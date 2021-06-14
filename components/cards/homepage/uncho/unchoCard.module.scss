@@ -1,0 +1,14 @@
+.unchoCard {
+  composes: baseCard from "components/cards/baseCard.module.scss";
+  padding: 5rem 0;
+  h1 {
+    font-size: calc(var(--font-size-XXL) * 1.5);
+    font-style: normal;
+    z-index: 5;
+    border-radius: 300px;
+    padding: 0.5em 1em;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    margin-bottom: 0;
+  }
+}
