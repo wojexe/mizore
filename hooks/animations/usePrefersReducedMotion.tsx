@@ -25,11 +25,12 @@ const usePrefersReducedMotion = () => {
       setPrefersReducedMotion(!event.matches)
     }
 
-    // mediaqueryList.onchange
-    mediaQueryList.addEventListener("change", listener)
+    if (mediaQueryList.addEventListener)
+      mediaQueryList.addEventListener("change", listener)
 
     return () => {
-      mediaQueryList.removeEventListener("change", listener)
+      if (mediaQueryList.addEventListener)
+        mediaQueryList.removeEventListener("change", listener)
     }
   }, [])
 
