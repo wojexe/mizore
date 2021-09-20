@@ -20,6 +20,7 @@ const ProperUser = forwardRef<any, any>(({ isLoggedIn, ...props }, ref) => {
 ProperUser.displayName = "ProperUser"
 
 const UserProfile = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   const [isPopoverOpen, setPopoverOpen] = useState(false)

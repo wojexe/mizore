@@ -9,14 +9,16 @@ import PopoverContext from "../popoverContext"
 
 import styles from "./popoverContent.module.scss"
 
-import { ModalContext } from "components/modals/modalContext"
-import SignInContent from "./modalContent/signInContent"
-import RegisterContent from "./modalContent/registerContent"
+import { useStore } from "store"
+
+import SignInContent from "components/modal/content/signInRegister/signInContent"
+import RegisterContent from "components/modal/content/signInRegister/registerContent"
 
 const PopoverContent = forwardRef<any, any>(
   ({ isLoggedIn: isSignedIn }, forwardRef) => {
     const { isOpen, isGoingToClose } = useContext(PopoverContext)
-    const { openModal, handleModal } = useContext(ModalContext)
+
+    const { openModal, setTitleContent } = useStore(state => state.modal)
 
     const [isGoingToOpen, setIsGoingToOpen] = useState(false)
 
@@ -75,14 +77,14 @@ const PopoverContent = forwardRef<any, any>(
         {
           name: "Sign in",
           action: () => {
-            handleModal("Sign In", <SignInContent />)
+            setTitleContent("Sign In", <SignInContent />)
             openModal()
           },
         },
         {
           name: "Register",
           action: () => {
-            handleModal("Register", <RegisterContent />)
+            setTitleContent("Register", <RegisterContent />)
             openModal()
           },
         },

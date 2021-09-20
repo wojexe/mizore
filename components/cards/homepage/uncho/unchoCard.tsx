@@ -12,6 +12,7 @@ export default function UnchoCard() {
       <Image
         role="presentation"
         alt="Blue-purple-pink layered gradient"
+        priority={true}
         src={heroSVG}
         layout="fill"
         objectFit="cover"

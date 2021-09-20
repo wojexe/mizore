@@ -7,7 +7,6 @@ import Head from "next/head"
 import { appWithTranslation } from "next-i18next"
 
 type NextPageWithLayout = NextPage & {
-  // eslint-disable-next-line no-unused-vars
   getLayout?: (page: ReactElement) => ReactNode
 }
 
@@ -18,13 +17,18 @@ type AppPropsWithLayout = AppProps & {
 import "modern-normalize"
 import "/styles/globals.scss"
 
-import { ModalProvider } from "components/modals/modalContext"
+import { useCreateStore, Provider as StoreProvider } from "store"
+
+import GlobalModal from "components/modal/globalModal"
 
 function Mizore({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page: ReactNode) => page)
 
+  const createStore = useCreateStore(pageProps.initializeZustandState)
+
   return (
-    <ModalProvider>
+    <StoreProvider createStore={createStore}>
+      <GlobalModal />
       {getLayout(
         <>
           <Head>
@@ -42,7 +46,7 @@ function Mizore({ Component, pageProps }: AppPropsWithLayout) {
           <Component {...pageProps} />
         </>
       )}
-    </ModalProvider>
+    </StoreProvider>
   )
 }
 
