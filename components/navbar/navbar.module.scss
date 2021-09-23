@@ -7,7 +7,7 @@
   --horizontalUnsafeArea: calc(var(--sal) + var(--sar));
 
   // width: calc(100% - var(--horizontalUnsafeArea));
-  width: clamp(150px, 90%, 650px);
+  width: clamp(150px, 90%, 750px);
   left: 50%;
   transform: translateX(-50%);
   min-height: 80px;

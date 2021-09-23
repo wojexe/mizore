@@ -1,0 +1,35 @@
+.newsCard {
+  position: relative;
+
+  padding: calc(calc(calc(var(--font-size-S) * 0.75) + 0.5rem) + 0.5rem) 1rem
+    0.5rem;
+
+  font-size: var(--font-size-M);
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  border-radius: 15px;
+  background: rgb(var(--inner-background-color));
+}
+
+.title {
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.date {
+  position: absolute;
+  color: #222222;
+  background-color: #d0d0d0;
+  border-radius: 50px;
+  padding: 0.15em 0.5em;
+  top: 0.5rem;
+  left: 0.75rem;
+  font-size: calc(var(--font-size-S) * 0.75);
+  font-weight: 700;
+}

@@ -1,6 +1,6 @@
 .layoutBase {
   display: grid;
-  grid-template-columns: 1fr [content] clamp(150px, 85%, 550px) 1fr;
+  grid-template-columns: 1fr [content] clamp(150px, 85%, 650px) 1fr;
   grid-auto-rows: auto;
 
   row-gap: 4rem;

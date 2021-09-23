@@ -2,10 +2,12 @@ import { useLayoutEffect } from "react"
 
 import create, { UseStore } from "zustand"
 import createContext from "zustand/context"
+import { devtools } from "zustand/middleware"
 
 import createModalSlice, { ModalSlice } from "./modal"
+import createNewsSlice, { NewsSlice } from "./news"
 
-export type MizoreState = ModalSlice
+export type MizoreState = ModalSlice & NewsSlice
 
 let store: UseStore<Partial<MizoreState>>
 
@@ -17,13 +19,16 @@ export const Provider = zustandContext.Provider
 export const useStore = zustandContext.useStore
 
 export const initializeStore = (preloadedState = {}) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  return create((set, get) => ({
-    ...initialState,
-    ...preloadedState,
+  return create(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    devtools((set, get) => ({
+      ...initialState,
+      ...preloadedState,
 
-    ...createModalSlice(set),
-  }))
+      ...createModalSlice(set),
+      ...createNewsSlice(set),
+    }))
+  )
 }
 
 export function useCreateStore(initialState) {

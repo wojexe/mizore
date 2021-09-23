@@ -8,7 +8,7 @@ import heroSVG from "public/images/hero.svg"
 
 export default function UnchoCard() {
   return (
-    <BaseCard title="UNCHO" className={styles.unchoCard}>
+    <BaseCard title="UNCHO" customPadding={true} className={styles.unchoCard}>
       <Image
         role="presentation"
         alt="Blue-purple-pink layered gradient"

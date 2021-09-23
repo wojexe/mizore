@@ -10,6 +10,8 @@ function useHoverPress({
   baseScale = 1,
   hoverScale = 1.1,
   pressedScale = 0.9,
+  reduceHoverScale = 1.05,
+  reducePressedScale = 0.95,
   springConfig = config.stiff,
 }): [MutableRefObject<any>, {}] {
   const ref: MutableRefObject<HTMLElement> = useRef(null)
@@ -27,7 +29,9 @@ function useHoverPress({
   useHover(
     ({ hovering }) => {
       hovering
-        ? scale.start({ to: prefersReducedMotion ? 1.1 : hoverScale })
+        ? scale.start({
+            to: prefersReducedMotion ? reduceHoverScale : hoverScale,
+          })
         : scale.start({ to: prefersReducedMotion ? 1 : baseScale })
     },
     {
@@ -39,7 +43,7 @@ function useHoverPress({
   useIsomorphicLayoutEffect(() => {
     // console.log("[TRYING] to add pointer to ", ref.current)
     if (ref && ref.current) {
-      // console.log("[SUCCESSFUL]")
+      // console.log("[REF EXISTS]")
       ref.current.addEventListener("pointerdown", () => {
         setIsPressed(true)
       })
@@ -47,17 +51,29 @@ function useHoverPress({
         setIsPressed(true)
       })
     }
+
+    return function cleanup() {
+      if (ref && ref.current) {
+        // console.log("[UNMOUNTING]")
+        ref.current.removeEventListener("pointerdown", () => {
+          setIsPressed(true)
+        })
+        ref.current.removeEventListener("active", () => {
+          setIsPressed(true)
+        })
+      }
+    }
   }, [ref])
 
   useEffect(() => {
     if (isPressed)
       scale.start({
         to: async next => {
-          await next(prefersReducedMotion ? 0.9 : pressedScale)
+          await next(prefersReducedMotion ? reducePressedScale : pressedScale)
           setIsPressed(false)
         },
       })
-  }, [isPressed])
+  }, [isPressed, prefersReducedMotion, pressedScale, reducePressedScale, scale])
 
   return [ref, scale]
 }

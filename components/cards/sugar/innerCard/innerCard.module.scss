@@ -1,0 +1,10 @@
+.innerCard {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  border-radius: 20px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  background: rgb(var(--inner-background-color));
+  box-shadow: var(--shadow-card);
+}

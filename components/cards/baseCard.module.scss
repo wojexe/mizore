@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   padding: 1rem 2rem;
   // margin: 0 1rem;
   overflow: hidden;
@@ -11,11 +12,7 @@
   font-size: var(--font-size-M);
   background-color: rgb(var(--card-color));
   // box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0.6px 0.6px -6px rgba(0, 0, 0, 0.07),
-    0 1.3px 1.3px -6px rgba(0, 0, 0, 0.101),
-    0 2.5px 2.5px -6px rgba(0, 0, 0, 0.125),
-    0 4.5px 4.5px -6px rgba(0, 0, 0, 0.149),
-    0 8.4px 8.4px -6px rgba(0, 0, 0, 0.18), 0 20px 20px -6px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-card);
   border-radius: 45px;
 
   h1 {
@@ -31,6 +28,18 @@
 
     user-select: none;
   }
+}
+
+.children {
+  display: grid;
+  width: 100%;
+
+  grid-template-columns: 100%;
+  grid-auto-rows: auto;
+
+  justify-items: center;
+
+  gap: 1rem;
 }
 
 @media (min-width: 800px) {
