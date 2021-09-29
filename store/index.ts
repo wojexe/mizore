@@ -1,8 +1,8 @@
 import { useLayoutEffect } from "react"
 
-import create, { UseStore } from "zustand"
+import create, { GetState, UseStore } from "zustand"
 import createContext from "zustand/context"
-import { devtools } from "zustand/middleware"
+import { devtools, NamedSet } from "zustand/middleware"
 
 import createModalSlice, { ModalSlice } from "./modal"
 import createNewsSlice, { NewsSlice } from "./news"
@@ -19,16 +19,32 @@ export const Provider = zustandContext.Provider
 export const useStore = zustandContext.useStore
 
 export const initializeStore = (preloadedState = {}) => {
-  return create(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    devtools((set, get) => ({
-      ...initialState,
-      ...preloadedState,
+  const m_initialState = {
+    ...initialState,
+    ...preloadedState,
+  }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const m_Slices = (set: NamedSet<object>, get: GetState<object>) => {
+    return {
       ...createModalSlice(set),
       ...createNewsSlice(set),
-    }))
-  )
+    }
+  }
+
+  return process.env.NODE_ENV !== "production"
+    ? create(
+        devtools((set, get) => ({
+          ...m_initialState,
+
+          ...m_Slices(set, get),
+        }))
+      )
+    : create((set, get) => ({
+        ...m_initialState,
+
+        ...m_Slices(set, get),
+      }))
 }
 
 export function useCreateStore(initialState) {

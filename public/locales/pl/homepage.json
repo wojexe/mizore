@@ -1,0 +1,11 @@
+{
+  "info": {
+    "title": "Informacje"
+  },
+  "tryItOut": {
+    "title": "Spróbuj swych umiejętności!",
+    "encouragement": "Aby korzystać z naszego serwera nie potrzebujesz switchera. Nie będziesz nawet potrzebować uprawnień administratora, ani modyfikować swoich plików!",
+    "label": "Po prostu skorzystaj z poniższych instrukcji!",
+    "showInstructions": "Pokaż instrukcje"
+  }
+}

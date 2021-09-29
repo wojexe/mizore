@@ -1,0 +1,11 @@
+{
+  "info": {
+    "title": "Info"
+  },
+  "tryItOut": {
+    "title": "Try it out!",
+    "encouragement": "No need to download a switcher to play on our server. You don't need to modify any of your files, nor even use admin rights!",
+    "label": "Simply follow the instructions below!",
+    "showInstructions": "Show instructions"
+  }
+}

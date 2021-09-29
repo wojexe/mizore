@@ -5,11 +5,14 @@ import FocusTrap from "focus-trap-react"
 import { FaTimes } from "react-icons/fa"
 
 import { useStore } from "store"
+import { useTranslation } from "next-i18next"
 
 import styles from "./globalModal.module.scss"
 import useHoverPress from "hooks/animations/useHoverPress"
 
 const GlobalModal = () => {
+  const { t } = useTranslation("common")
+
   const { isOpen, title, content, errors, closeModal } = useStore(
     state => state.modal
   )
@@ -82,7 +85,7 @@ const GlobalModal = () => {
               style={{ translateY: translateY as any }}
               onClick={e => e.stopPropagation()}
             >
-              <h1 className={styles.title}>{title}</h1>
+              <h1 className={styles.title}>{t(title)}</h1>
               {content}
             </a.div>
             <a.div

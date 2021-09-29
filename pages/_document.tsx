@@ -7,7 +7,15 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#121212" />
-          <link rel="canonical" href="https://uncho.top/"></link>
+          <link rel="canonical" href="https://uncho.top/" />
+
+          <link rel="alternate" hrefLang="en" href="https://uncho.top/" />
+          <link rel="alternate" hrefLang="pl" href="https://uncho.top/pl" />
+          <link
+            rel="alternate"
+            hrefLang="x-default"
+            href="https://uncho.top/"
+          />
 
           {/* OPENGRAPH */}
           <meta property="og:type" content="website" />

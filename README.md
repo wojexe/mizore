@@ -23,10 +23,10 @@ To run this project locally, you need [Node.js](https://nodejs.org/) installed o
 
 ```bash
 # Clone the repository to your current directory
-git clone https://github.com/wojexe/mizore-next.git
+git clone https://github.com/wojexe/mizore.git
 
-# cd into the cloned mizore-next repo
-cd mizore-next
+# cd into the cloned mizore repo
+cd mizore
 
 # Install required packages
 npm i

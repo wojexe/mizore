@@ -1,13 +1,13 @@
-import BaseCard from "components/cards/baseCard"
-
-import styles from "./infoCard.module.scss"
-
 import { useStore } from "store"
-import { useMemo, useState } from "react"
+import { ReactNode, useMemo, useState } from "react"
+import { useTransition } from "@react-spring/web"
+import { useTranslation } from "next-i18next"
 
+import BaseCard from "components/cards/baseCard"
 import ShowMore from "components/cards/sugar/showMore/showMore"
 import NewsCard from "./newsCard"
-import { useTransition } from ".pnpm/@react-spring+core@9.2.4_react@17.0.2/node_modules/@react-spring/core"
+
+import styles from "./infoCard.module.scss"
 
 export default function InfoCard() {
   const {
@@ -16,6 +16,8 @@ export default function InfoCard() {
     fetchNews,
     openNewsBottomSheet,
   } = useStore(state => state.news)
+
+  const { t } = useTranslation("homepage")
 
   const [itemsToLoad, setItemsToLoad] = useState(4)
 
@@ -30,7 +32,7 @@ export default function InfoCard() {
     id: string
     date: string
     title: string
-    content?: JSX.Element | string
+    content?: ReactNode
   }[] = useMemo(() => {
     return [
       {
@@ -72,7 +74,7 @@ export default function InfoCard() {
 
   return (
     <BaseCard
-      title="Info"
+      title={t("info.title")}
       customPadding={true}
       style={{ paddingBottom: numberOfPosts < itemsToLoad ? "2rem" : null }}
     >

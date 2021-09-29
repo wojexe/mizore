@@ -1,0 +1,34 @@
+{
+  "pageNames": {
+    "homepage": "homepage",
+    "profile": "profile",
+    "profileWithUsername": "{{username}}'s profile",
+    "rankings": "rankings",
+    "support": "support"
+  },
+  "buttons": {
+    "showMore": "Show more"
+  },
+  "modals": {
+    "signIn": {
+      "title": "Sign In",
+      "content": {
+        "usernameEmail": "username / email",
+        "password": "password",
+        "rememberMe": "remember me",
+        "signIn": "Sign In"
+      }
+    },
+    "register": {
+      "title": "Register",
+      "content": {
+        "email": "email",
+        "username": "username",
+        "password": "password",
+        "personalCode": "personal secret code",
+        "signUp": "Sign Up"
+      }
+    }
+  },
+  "footer": "created with <1>❤</1> by uncho! dev team"
+}

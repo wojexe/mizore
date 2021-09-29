@@ -1,19 +1,21 @@
 import { SetState } from "zustand"
 import { MizoreState } from "store"
 
+import React from "react"
+
 export interface ModalSlice {
   modal: {
     isOpen: boolean
 
     title: string
-    content: string | JSX.Element
+    content: React.ReactNode
 
     errors: string[]
 
     openModal: () => void
     closeModal: () => void
 
-    setTitleContent: (title: string, content: string | JSX.Element) => void
+    setTitleContent: (title: string, content: React.ReactNode) => void
     setErrors: (errors: string[]) => void
   }
 }
@@ -27,7 +29,7 @@ const createModalSlice = (set: SetState<MizoreState>) => ({
       set(({ modal }) => ({ modal: { ...modal, isOpen: true } })),
     closeModal: () =>
       set(({ modal }) => ({ modal: { ...modal, isOpen: false } })),
-    setTitleContent: (title: string, content: string | JSX.Element) =>
+    setTitleContent: (title: string, content: React.ReactNode) =>
       set(({ modal }) => ({
         modal: { ...modal, title: title, content: content },
       })),

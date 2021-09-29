@@ -1,10 +1,14 @@
 import { useState } from "react"
+import { useTranslation } from "next-i18next"
+
 import styles from "./sharedStyles.module.scss"
 
 import SubmitButton from "components/form/submitButton/submitButton"
 import PasswordInput from "components/form/passwordInput/passwordInput"
 
 const SignInContent = () => {
+  const { t } = useTranslation("common")
+
   const [username, setUsername] = useState<string | number>("")
   const [password, setPassword] = useState<string | number>("")
   const [isRemember, setRemember] = useState<boolean>(false)
@@ -14,13 +18,11 @@ const SignInContent = () => {
       className={styles.form}
       onSubmit={e => {
         e.preventDefault()
-
-        // console.log(username, password, isRemember)
       }}
     >
       <div className={styles.fieldContainer}>
         <label>
-          username / email
+          {t("modals.signIn.content.usernameEmail")}
           <input
             type="text"
             name="username"
@@ -36,7 +38,7 @@ const SignInContent = () => {
 
       <div className={styles.fieldContainer}>
         <label>
-          password
+          {t("modals.signIn.content.password")}
           <PasswordInput
             name="password"
             autoComplete="current-password"
@@ -63,7 +65,7 @@ const SignInContent = () => {
             checked={isRemember}
             onChange={() => setRemember(!isRemember)}
           />
-          remember me
+          {t("modals.signIn.content.rememberMe")}
         </label>
       </div>
 
@@ -72,7 +74,7 @@ const SignInContent = () => {
         type="submit"
         value="sign_in"
       >
-        Sign in
+        {t("modals.signIn.content.signIn")}
       </SubmitButton>
     </form>
   )

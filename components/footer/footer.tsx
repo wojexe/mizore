@@ -1,3 +1,4 @@
+import { Trans } from "next-i18next"
 import styles from "./footer.module.scss"
 
 import FooterLink from "./footerLink/footerLink"
@@ -12,7 +13,10 @@ const FooterCard = props => {
   return (
     <footer className={styles.footer} {...props}>
       <span>
-        created with <span className={styles.heart}>❤</span> by uncho! dev team
+        <Trans i18nKey="footer">
+          created with <span className={styles.heart}>❤</span> by uncho! dev
+          team
+        </Trans>
       </span>
       <div className={styles.iconContainer}>
         {listOfLinks.map(({ link, iconName }, index) => (

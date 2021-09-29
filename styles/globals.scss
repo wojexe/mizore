@@ -52,6 +52,10 @@ a {
   color: unset;
 }
 
+p {
+  max-width: 46ch;
+}
+
 label {
   font-size: var(--font-size-S);
   user-select: none;

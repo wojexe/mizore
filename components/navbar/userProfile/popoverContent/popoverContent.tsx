@@ -1,7 +1,9 @@
-import { a, useSpring, config } from "@react-spring/web"
-import router from "next/router"
-
 import { useContext, useEffect, useState, useRef, forwardRef } from "react"
+
+import router from "next/router"
+import { useStore } from "store"
+import { useTranslation } from "next-i18next"
+import { a, useSpring, config } from "@react-spring/web"
 
 import PopoverListElement from "./popoverListElement/popoverListElement"
 
@@ -9,13 +11,13 @@ import PopoverContext from "../popoverContext"
 
 import styles from "./popoverContent.module.scss"
 
-import { useStore } from "store"
-
 import SignInContent from "components/modal/content/signInRegister/signInContent"
 import RegisterContent from "components/modal/content/signInRegister/registerContent"
 
 const PopoverContent = forwardRef<any, any>(
   ({ isLoggedIn: isSignedIn }, forwardRef) => {
+    const { t } = useTranslation("common")
+
     const { isOpen, isGoingToClose } = useContext(PopoverContext)
 
     const { openModal, setTitleContent } = useStore(state => state.modal)
@@ -75,16 +77,16 @@ const PopoverContent = forwardRef<any, any>(
       ],
       anonymous: [
         {
-          name: "Sign in",
+          name: t("modals.signIn.title"),
           action: () => {
-            setTitleContent("Sign In", <SignInContent />)
+            setTitleContent("modals.signIn.title", <SignInContent />)
             openModal()
           },
         },
         {
-          name: "Register",
+          name: t("modals.register.title"),
           action: () => {
-            setTitleContent("Register", <RegisterContent />)
+            setTitleContent("modals.register.title", <RegisterContent />)
             openModal()
           },
         },

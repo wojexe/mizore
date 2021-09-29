@@ -1,9 +1,13 @@
 import { useState } from "react"
+import { useTranslation } from "next-i18next"
+
 import styles from "./sharedStyles.module.scss"
 
 import SubmitButton from "components/form/submitButton/submitButton"
 
 const SignInContent = () => {
+  const { t } = useTranslation("common")
+
   const [username, setUsername] = useState<string | number>("")
   const [email, setEmail] = useState<string | number>("")
   const [password, setPassword] = useState<string | number>("")
@@ -17,13 +21,11 @@ const SignInContent = () => {
       className={styles.form}
       onSubmit={e => {
         e.preventDefault()
-
-        // console.log(email, username, password, secretCode)
       }}
     >
       <div className={styles.fieldContainer}>
         <label>
-          email
+          {t("modals.register.content.email")}
           <input
             type="email"
             name="email"
@@ -39,7 +41,7 @@ const SignInContent = () => {
 
       <div className={styles.fieldContainer}>
         <label>
-          username
+          {t("modals.register.content.username")}
           <input
             type="text"
             name="username"
@@ -53,7 +55,7 @@ const SignInContent = () => {
 
       <div className={styles.fieldContainer}>
         <label>
-          password
+          {t("modals.register.content.password")}
           <input
             type="password"
             name="password"
@@ -67,7 +69,7 @@ const SignInContent = () => {
 
       <div className={styles.fieldContainer}>
         <label>
-          personal secret code
+          {t("modals.register.content.personalCode")}
           <input
             type="text"
             name="password"
@@ -84,7 +86,7 @@ const SignInContent = () => {
         type="submit"
         value="sign_up"
       >
-        Sign up
+        {t("modals.register.content.signUp")}
       </SubmitButton>
     </form>
   )

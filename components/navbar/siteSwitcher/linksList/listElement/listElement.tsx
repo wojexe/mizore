@@ -37,7 +37,7 @@ const ListElement = ({ index, name, path, pathname, setCurrentActiveLink }) => {
             ref={hoverPressRef}
           >
             {switcher.isOpen ? (
-              <Link href={path}>
+              <Link href={path} passHref={true}>
                 <a tabIndex={0}>{name}</a>
               </Link>
             ) : (

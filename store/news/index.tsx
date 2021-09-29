@@ -2,6 +2,7 @@ import { SetState } from "zustand"
 import { MizoreState } from "store"
 
 import produce from "immer"
+import React from "react"
 
 export interface NewsItem {
   readonly id: string
@@ -9,7 +10,7 @@ export interface NewsItem {
   readonly date: string
   readonly title: string
 
-  readonly content?: JSX.Element | string
+  readonly content?: React.ReactNode
 }
 
 export interface NewsSlice {
